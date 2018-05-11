@@ -1,9 +1,47 @@
 import { Injectable } from '@angular/core';
+import { PARAMETERS } from '@angular/core/src/util/decorators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CalculadoraService {
 
-  constructor() { }
+  static readonly SOMA:string = '+';
+  static readonly SUBTRACAO:string = '-';
+  static readonly MULTIPLICACAO:string = '*';
+  static readonly DIVISAO:string = '/';
+
+  constructor() {
+  }
+  
+   
+   calcular(num1:number,num2:number,operacao:string):number{
+    let resultado:number ;
+
+  switch(operacao){
+    
+    case CalculadoraService.SOMA:
+    resultado = num1+num2;
+    break;
+
+    case CalculadoraService.SUBTRACAO:
+    resultado = num1-num2;
+    break;
+
+    case CalculadoraService.MULTIPLICACAO:
+    resultado = num1*num2;
+    break;
+
+    case CalculadoraService.DIVISAO:
+    resultado = num1/num2;
+    break;
+    default:resultado = 0;
+    
+
+  }
+
+  return resultado;
+
+
+  }
 }

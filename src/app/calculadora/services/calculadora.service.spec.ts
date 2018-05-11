@@ -12,4 +12,9 @@ describe('CalculadoraService', () => {
   it('should be created', inject([CalculadoraService], (service: CalculadoraService) => {
     expect(service).toBeTruthy();
   }));
+
+  it('deve garantir que 10+5 = 10',inject([CalculadoraService],(service: CalculadoraService) =>{
+    let soma = service.calcular(10, 5,'+');
+    expect(soma).toEqual(15);
+  }))
 });
